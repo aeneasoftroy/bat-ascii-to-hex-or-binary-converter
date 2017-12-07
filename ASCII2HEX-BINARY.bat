@@ -8,7 +8,7 @@ REM Here we tell the script which conversion to perform, ASCII2HEX or ASCII2BINA
 set CONVERSIONTYPE=ASCII2BINARY
 
 REM Set DEBUG to 1 to see more details about what's going on. Later on in the script, in specific point you want to monitor while processing you can echo if DEBUG==1.
-set DEBUG=1
+set DEBUG=0
 
 REM Make sure this value is empty on start, else we could have problems. Even though it's unlikely this variable has been previously used by another script or action, avoid any unneeded errors and empty it just to be sure everything goes fine.
 set string=

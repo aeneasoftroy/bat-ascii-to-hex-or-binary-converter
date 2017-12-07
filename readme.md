@@ -1,8 +1,8 @@
 Simple batch script by Stephan van de Kerkhof
 
-![alt text](https://raw.githubusercontent.com/stephanvandekerkhof/bat-ascii-to-hex-or-binary-converter/ASCII2BINARY.png)
+![alt text](https://github.com/stephanvandekerkhof/bat-ascii-to-hex-or-binary-converter/blob/master/ASCII2BINARY.png)
 
-![alt text](https://raw.githubusercontent.com/stephanvandekerkhof/bat-ascii-to-hex-or-binary-converter/ASCII2HEX.png)
+![alt text](https://github.com/stephanvandekerkhof/bat-ascii-to-hex-or-binary-converter/blob/master/ASCII2HEX.png)
 
 This batch script is for converting ASCII values to HEX or BINARY, multiple usages allowed:
 

@@ -17,7 +17,7 @@ REM %1 indicates a parameter, if none were given it will ask for a parameter usi
 set input=%1
 
 REM If %1 is empty, no input was given while starting this script, better ask for user input else the script wouldn't do anything:
-if [%1]==[] set /p input=Enter value ASCII2HEX:
+if [%1]==[] set /p input=Enter value %CONVERSIONTYPE%:
 
 REM Set a terminator character so the parser knows where to stop en/decoding ...
 set input=%INPUT%]

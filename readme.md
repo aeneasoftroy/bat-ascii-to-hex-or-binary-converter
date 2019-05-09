@@ -1,4 +1,4 @@
-Simple batch script by Stephan
+Simple batch script by Aeneas of Troy
 
 ![alt text](https://github.com/aeneasoftroy/bat-ascii-to-hex-or-binary-converter/blob/master/ASCII2BINARY.png)
 

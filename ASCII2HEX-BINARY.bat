@@ -5,7 +5,8 @@ REM ----------------------------------------------
 REM Easy script to convert ASCII values to HEX or BINARY
 
 REM Here we tell the script which conversion to perform, ASCII2HEX or ASCII2BINARY
-set CONVERSIONTYPE=ASCII2BINARY
+set /p CONVERSIONTYPE="ASCII2BINARY or ASCII2HEX (1/2) "
+If [%CONVERSIONTYPE%]==[1] (set CONVERSIONTYPE=ASCII2BINARY) else set CONVERSIONTYPE=ASCII2HEX
 
 REM Set DEBUG to 1 to see more details about what's going on. Later on in the script, in specific point you want to monitor while processing you can echo if DEBUG==1.
 set DEBUG=0
@@ -20,7 +21,6 @@ REM If %1 is empty, no input was given while starting this script, better ask fo
 if [%1]==[] set /p input=Enter value %CONVERSIONTYPE%:
 
 REM Set a terminator character so the parser knows where to stop en/decoding ...
-set input=%INPUT%]
 
 REM Now we start parsing the input string:
 :EXTRACT
@@ -29,8 +29,8 @@ REM Step 1. Extract the first character
 set i=%input:~0,1%
 
 REM Step 2. Get the ASCII value from the lookup table in this script ...
-IF [%CONVERSIONTYPE%]==[ASCII2HEX] for /F "tokens=1,2,3,4,5,6 delims=;" %%a in (%~nx0) do if /i ";%%d"==";%i%" set ASCII=%%b
-IF [%CONVERSIONTYPE%]==[ASCII2BINARY] for /F "tokens=1,2,3,4,5,6 delims=;" %%a in (%~nx0) do if /i ";%%d"==";%i%" set ASCII=%%c
+IF [%CONVERSIONTYPE%]==[ASCII2HEX] for /F "tokens=1,2,3,4 delims=;" %%a in (%~nx0) do if ";%%d"==";%i%" set ASCII=%%b
+IF [%CONVERSIONTYPE%]==[ASCII2BINARY] for /F "tokens=1,2,3,4 delims=;" %%a in (%~nx0) do if ";%%d"==";%i%" set ASCII=%%c
 if %DEBUG%==1 echo ascii=%ASCII%
 if %DEBUG%==1 echo string1=%STRING%
 
@@ -42,7 +42,7 @@ REM Step 4. Remove the first character from the input string ...
 set input=%input:~1%
 
 REM Step 5. Look for our termination character, if it's found, exit the parser.
-if "%input%"=="]" goto :DONE
+if [%input%]==[] goto :DONE
 
 REM Step 6. Repeat untill the termination character has been found.
 goto :EXTRACT
